@@ -11,7 +11,6 @@ gem 'puma', '~> 4.1'
 gem 'cancancan'
 gem 'devise'
 gem 'material_icons'
-gem 'materialize-sass', '~> 1.0.0'
 gem 'redis', '~> 3.0.0'
 
 gem 'sass-rails', '>= 6'
