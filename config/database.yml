@@ -10,6 +10,10 @@ development:
   <<: *default
   database: onebitchat_development
 
+test:
+  <<: *default
+  database: onebitchat_test
+
 production:
   <<: *default
   database: onebitchat_production
