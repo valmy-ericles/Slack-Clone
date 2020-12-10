@@ -14,10 +14,6 @@ class ChannelsController < ApplicationController
     end
   end
 
-  def show
-    authorize! :read, @channel
-  end
-
   def destroy
     authorize! :destroy, @channel
     @channel.destroy
@@ -27,6 +23,10 @@ class ChannelsController < ApplicationController
     end
   end
 
+  def show
+    authorize! :read, @channel
+  end
+
   private
 
   def set_channel
@@ -34,6 +34,6 @@ class ChannelsController < ApplicationController
   end
 
   def channel_params
-    params.permit(:channel).permit(:slug, :team_id).merge(user: current_user)
+    params.require(:channel).permit(:slug, :team_id).merge(user: current_user)
   end
 end

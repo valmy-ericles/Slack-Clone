@@ -9,11 +9,13 @@ class Ability
     can :read, Team do |t|
       t.user_id == user.id || t.users.where(id: user.id).present?
     end
+
     can :destroy, Team, user_id: user.id
 
     can [:read, :create], Channel do |c|
       c.team.user_id == user.id || c.team.users.where(id: user.id).present?
     end
+
     can [:destroy, :update], Channel do |c|
       c.team.user_id == user.id || c.user_id == user.id
     end

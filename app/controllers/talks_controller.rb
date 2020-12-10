@@ -2,7 +2,7 @@ class TalksController < ApplicationController
   before_action :set_talk, only: :show
 
   def show
-    authorize! :read, @takl
+    authorize! :read, @talk
   end
 
   private

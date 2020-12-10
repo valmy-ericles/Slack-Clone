@@ -17,7 +17,7 @@ class TeamsController < ApplicationController
       if @team.save
         format.html { redirect_to "/#{@team.slug}" }
       else
-        format.html { redirect_to root_url, notice: @team.errors }
+        format.html { redirect_to main_app.root_url, notice: @team.errors }
       end
     end
   end
@@ -27,8 +27,7 @@ class TeamsController < ApplicationController
     @team.destroy
 
     respond_to do |format|
-      format.json { head :no_content }
-      format.html { redirect_to root_url, notice: 'Team deleted' }
+      format.json { render json: true }
     end
   end
 
