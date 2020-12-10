@@ -33,6 +33,8 @@ RSpec.describe TalksController, type: :controller do
       end
 
       it 'Return the right params' do
+        puts response
+
         response_hash = JSON.parse(response.body)
 
         expect(response_hash['user_one_id']).to eq(@current_user.id)

@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :channel do
-    slug { Faker::Name.name }
+    slug { %w[onebitcode microsoft google].sample }
     team
     user { team.user }
   end
