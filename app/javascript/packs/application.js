@@ -11,6 +11,13 @@ require("channels")
 import 'materialize-css/dist/js/materialize'
 import '../stylesheets/application'
 
+import '../stylesheets/shared/_navbar'
+import '../stylesheets/shared/_sidebar'
+
+import '../stylesheets/teams/_sidebar'
+import '../stylesheets/teams/index'
+import '../stylesheets/teams/show'
+
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
 // or the `imagePath` JavaScript helper below.
