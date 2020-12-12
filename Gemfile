@@ -9,12 +9,17 @@ gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 4.1'
 
 gem 'cancancan'
+gem 'coffee-rails', '~> 4.2'
 gem 'devise'
+gem 'jquery-rails'
+gem 'material_icons'
+gem 'materialize-sass', '~> 0.98.2'
 gem 'redis', '~> 3.0.0'
 
-gem 'jbuilder', '~> 2.7'
 gem 'sass-rails', '>= 6'
-gem 'webpacker', '~> 4.0'
+gem 'turbolinks', '~> 5'
+
+gem 'jbuilder', '~> 2.7'
 
 gem 'bootsnap', '>= 1.4.2', require: false
 

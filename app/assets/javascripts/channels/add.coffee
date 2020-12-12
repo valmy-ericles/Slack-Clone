@@ -16,7 +16,7 @@ $(document).on 'turbolinks:load', ->
         success: (data, text, jqXHR) ->
           window.add(data['slug'], data['id'], 'channel')
           window.open(data['id'], 'channels')
-          Materialize.toast('Success in add Channel &nbsp;<b>:(</b>', 4000, 'green')
+          Materialize.toast('Success in add Channel &nbsp;<b>:)</b>', 4000, 'green')
         error: (jqXHR, textStatus, errorThrown) ->
           Materialize.toast('Problem in add Channel &nbsp;<b>:(</b>', 4000, 'red')
 
