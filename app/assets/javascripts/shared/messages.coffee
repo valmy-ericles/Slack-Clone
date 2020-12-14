@@ -5,10 +5,10 @@ clean_messages = () ->
     $(".messages").html("")
     $(".chat_name").html("")
 
-add_message = (message, message_date, name) ->
+window.add_message = (message, message_date, name, url) ->
   $(".messages").append('<div class="message col s12">' +
                           '<div class="col m2 l1">' +
-                            '<i class="material-icons prefix right profile_icon">account_circle</i>'+
+                            '<img src="http://localhost:3000' +url+'" class="circle responsive-img prefix right profile_icon">'+
                           '</div>'+
                           '<div class="col m10 s9">'+
                             '<div class="row">'+
@@ -17,6 +17,7 @@ add_message = (message, message_date, name) ->
                             '<div class="row">' + message + '</div>'+
                           '</div>'+
                         '</div>')
+  $(".messages").animate({ scrollTop: $('.messages').prop("scrollHeight")}, 100);
 
 window.open = (id, type) ->
   clean_messages()
@@ -28,13 +29,17 @@ window.open = (id, type) ->
       success: (data, text, jqXHR) ->
         if type == "talks"
           set_chat(data['user']['name'])
+          window.open_talk($(".team_id").val(), id)
         else
           set_chat(data['slug'])
+          window.open_channel(id)
+
+        window.change_chat(id, type, $(".team_id").val())
 
         if(data['messages'])
           for message in data['messages']
             do ->
-              add_message(message['body'], message['date'], message['user']['name'])
+              window.add_message(message['body'], message['date'], message['user']['name'],  message['user']['avatar']["url"])
       error: (jqXHR, textStatus, errorThrown) ->
         Materialize.toast('Problem to get ' + type + ' informations &nbsp;<b>:(</b>', 4000, 'red')
 
