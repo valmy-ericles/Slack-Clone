@@ -4,4 +4,4 @@ window.change_chat = (id, type, team_id) ->
 
   App.chat = App.cable.subscriptions.create { channel: "ChatChannel", id: id , type: type, team_id: team_id},
     received: (data) ->
-      window.add_message(data.message, data.date, data.name, data.avatar.url)
+      window.add_message(data.message, data.date, data.name)
